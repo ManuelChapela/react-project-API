@@ -6,7 +6,7 @@ import GifGrid from './components/GifGrid'
 
  const GifExpertApp = () => {
 
-    const [categories, setCategories] = useState(['Olympus XA' ])
+    const [categories, setCategories] = useState(['' ])
     
     // const handleAdd = () => {
     //     setCategories([...categories, "Olympus Pen F"]) 

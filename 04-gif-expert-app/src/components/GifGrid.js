@@ -1,36 +1,28 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import { useFetchGifs } from '../hooks/useFetchGifs'
 import GifGridItem  from './GifGridItem'
+// import getGifs from '../helpers/getGifs'
 
-const GifGrid = ( { category }) => {
+const GifGrid = ({ category }) => {
 
-    // const [ count, setCount ] = useState(0);
-    // const [title, setTitle] = useState([])    
+    // Custom Hook creado por nosotros. Desestructurado.
+    const { data:images, loading} =  useFetchGifs( category ); 
+
+    
+    /*
+    const [ count, setCount ] = useState(0);
+    const [title, setTitle] = useState([])    
+    
     const [images, setImages] = useState([])
-
-    useEffect( () => {
-        getGifs()
-    }, [])
-
-    const getGifs = async() => {
-        const url = `https://api.giphy.com/v1/gifs/search?q=${ encodeURI(category)}&limit=10&api_key=kuzu5kFLVLVHz8m655RVPp15MsVda9rr`
-        const resp = await fetch( url );
-        const { data } = await resp.json();
-
-        const gifs = data.map(img => {
-            return {
-                id: img.id,
-                title: img.title,
-                url: img.images?.downsized_medium.url
-            }
-        })
-        console.log("gifs", gifs);
-        setImages(gifs)
-    }
+    
+    // Si cambia category se volvería renderizar todo.
+    */
 
 
 return (
         <>
-            <h3>{ category }</h3>
+            <h3 className='animate__animated animate__fadeIn'>{ category }</h3>
+            { loading && <p className='animate__animated animate__flash'>Loading...</p>}
             <div className="card-grid">
                 
                 {
